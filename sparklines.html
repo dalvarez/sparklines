@@ -3,7 +3,7 @@
 <title>Sparklines with canvas</title>
 <style type="text/css">
 #can{
-  border: 1px dashed blue;
+/*  border: 1px dashed blue;*/
 }
 </style>
 
@@ -31,11 +31,11 @@ var weights = [163.4,162.4,162.2,161.6,160.1,162.6,162.6,162.6,162.4,163.2,162,1
 var canvas = document.getElementById('can');
 var c = canvas.getContext('2d');
     c.fillStyle = "#d2d1d1";
-    c.fillRect(0, (200-164)*4, (weights.length)*2, 30);
+    c.fillRect(0, (200-164), (weights.length)*4, (164-132));
 var x= 0;
-    c.strokeStyle = "#a6a6a6";
+    c.strokeStyle = "#736F6E";
     c.beginPath();
-    c.moveTo(x, (200-weights[0])*4);
+    c.moveTo(x, (200-weights[0]));
 for(var i=0; i<weights.length; i++)
 {
   x+=4;
@@ -52,7 +52,7 @@ for(var i=0; i<weights.length; i++)
       Multiplying by 4 will increase the scale of the y axis, making the graph -
       and especially its peaks and valleys - easier to distinguish.
     */
-    c.lineTo(x, (200-weights[i])*4); 
+    c.lineTo(x, (200-weights[i])); 
     // c.lineTo(150, 100);
     // c.moveTo(60, 40);
     // c.lineTo(61, 41);
@@ -64,16 +64,16 @@ for(var i=0; i<weights.length; i++)
     c.beginPath();
 
 //This will draw the red "dot" on the final point
-    c.moveTo(x, (200-weights[weights.length-1])*4);
-    c.lineTo(x, (200-weights[weights.length-1])*4);
-    c.lineTo(x, ((200-weights[weights.length-1])*4)+1);
-    c.lineTo(x+1, ((200-weights[weights.length-1])*4)+1);        
-    c.lineTo(x+2, ((200-weights[weights.length-1])*4)+1);
-    c.lineTo(x+2, ((200-weights[weights.length-1])*4));    
-    c.lineTo(x+2, ((200-weights[weights.length-1])*4)-1);    
-    c.lineTo(x+1, ((200-weights[weights.length-1])*4)-1);    
-    c.lineTo(x, ((200-weights[weights.length-1])*4)-1);
-    c.lineTo(x+1, ((200-weights[weights.length-1])*4));       
+    c.moveTo(x, (200-weights[weights.length-1]));
+    c.lineTo(x, (200-weights[weights.length-1]));
+    c.lineTo(x, ((200-weights[weights.length-1]))+1);
+    c.lineTo(x+1, ((200-weights[weights.length-1]))+1);        
+    c.lineTo(x+2, ((200-weights[weights.length-1]))+1);
+    c.lineTo(x+2, ((200-weights[weights.length-1])));    
+    c.lineTo(x+2, ((200-weights[weights.length-1]))-1);    
+    c.lineTo(x+1, ((200-weights[weights.length-1]))-1);    
+    c.lineTo(x, ((200-weights[weights.length-1]))-1);
+    c.lineTo(x+1, ((200-weights[weights.length-1])));       
     c.stroke();
     
 //c.fillStyle = "red";
@@ -93,10 +93,10 @@ for(var i=0; i<weights.length; i++)
 
 c.fillStyle = "black";
 c.font = 'italic 10pt sans-serif';
-c.fillText("weight ", x, weights[weights.length-1]);
+c.fillText("weight ", x+2, 200-(weights[weights.length-1]));
 c.fillStyle = "red";
 c.font = 'italic 10pt sans-serif';
-c.fillText("157.6 ", x+40, weights[weights.length-1]);
+c.fillText("157.6 ", x+42, 200-(weights[weights.length-1]));
 </script>
 
 
