@@ -21,7 +21,7 @@ This text is displayed if your browser does not support HTML5 Canvas.
 </canvas>
 
 <script type="text/javascript">
-var weights = [163.4,162.4,162.2,161.6,160.1,162.6,162.6,162.6,162.4,163.2,162,162.6,163.4,163.6,163.2,164,163.2,161.2,162.6,162.6,163.4,163.4,165.2,164.8,162.4,163,161,159,158.8,157.6];
+var weights = [163.4,162.4,162.2,161.6,160.1,162.6,162.6,162.6,162.4,163.2,162,162.6,163.4,163.6,163.2,164,163.2,161.2,162.6,162.6,163.4,163.4,165.2,164.8,162.4,163,161,159,158.8,157.6, 158.2];
 
 //x -axis will be time (or just instances in this case)
 //y-axis will be weights
@@ -30,15 +30,21 @@ var weights = [163.4,162.4,162.2,161.6,160.1,162.6,162.6,162.6,162.4,163.2,162,1
 
 var canvas = document.getElementById('can');
 var c = canvas.getContext('2d');
-    c.fillStyle = "#d2d1d1";
-    c.fillRect(0, (200-164), (weights.length)*4, (164-132));
+
+
+//This bounding box represents the normal range of values to be expected
+    // c.fillStyle = "#d2d1d1";
+    //     c.fillRect(0, (200-164), (weights.length)*4, (164-132));
+    
+    
 var x= 0;
+var y = 2; //vertical scale multiplier
     c.strokeStyle = "#736F6E";
     c.beginPath();
-    c.moveTo(x, (200-weights[0]));
+    c.moveTo(x, (200-weights[0])*y);
 for(var i=0; i<weights.length; i++)
 {
-  x+=4;
+  x+=1.5;
   //the x axis will move 2 "pts" each iteration
   // the y axis will be the weight itself
 
@@ -52,7 +58,7 @@ for(var i=0; i<weights.length; i++)
       Multiplying by 4 will increase the scale of the y axis, making the graph -
       and especially its peaks and valleys - easier to distinguish.
     */
-    c.lineTo(x, (200-weights[i])); 
+    c.lineTo(x, (200-weights[i])*y); 
     // c.lineTo(150, 100);
     // c.moveTo(60, 40);
     // c.lineTo(61, 41);
@@ -96,7 +102,7 @@ c.font = 'italic 10pt sans-serif';
 c.fillText("weight ", x+2, 200-(weights[weights.length-1]));
 c.fillStyle = "red";
 c.font = 'italic 10pt sans-serif';
-c.fillText("157.6 ", x+42, 200-(weights[weights.length-1]));
+c.fillText(weights[weights.length-1], x+42, 200-(weights[weights.length-1]));
 </script>
 
 
