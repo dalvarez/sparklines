@@ -1,0 +1,12 @@
+New Process:
+
+1) Find the Median
+2) Find the biggest delta between the lowest and highest numbers; the biggest delta means that number touches the edge of the canvas and is the highest/lowest point of the sparkline
+3) Find the vertical scale multiplier
+
+
+NEXT STEP - Make both the min and max touch the edges of the canvas in order to (properly?) stretch out the graph
+
+OR
+
+find a way to 'flip' the whole canvas on the horizontal..
